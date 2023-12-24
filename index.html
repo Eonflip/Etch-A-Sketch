@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch-A-Sketch</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/eb1b0c178a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-text" id="headerText">Etch-A-Sketch</h1>
+    </header>
+
+    <main class="main">
+        <div class="square-container" id="squaresContainer">
+
+        </div>
+        <div class="buttons">
+            <input type="color" class="slider" id="slider" />
+            <button class="color-select" id="colorSelect">Color</button>
+            <button class="rainbow-select" id="rainbowSelect">Rainbow</button>
+            <button class="erase-select" id="eraseSelect">Eraser</button>
+            <button class="clear-button" id="clearButton">Clear</button>
+        </div>
+        <div class="slider-container" id="sliderContainer">
+            <input type="range" class="slider" id="sizeSlider" min="1" max="100" step="1" value="50"/>
+            <span id="sliderValue">50</span>
+        </div>
+
+        
+    </main>
+
+    <footer class="footer">
+        <p class="footer-text" id="footerText">
+            Copyright © 
+            <script>document.write(new Date.getFullYear())</script>
+            eonloop
+        </p>
+        <a href="https://github.com/Eonflip" target="_blank">
+           <i class="fab fa-github"></i> 
+        </a>
+    </footer>
+</body>
+</html>

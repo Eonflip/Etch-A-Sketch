@@ -1,0 +1,111 @@
+:root {
+    --primary-background-color: #425044;
+    --secondary-background: #282a41;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.header {
+    background-color: var(--secondary-background);
+    padding: 30px;
+    margin-left: -2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-text {
+    color: white;
+}
+
+body {
+    background-color: var(--primary-background-color);
+}
+
+
+.square-container {
+    display: flex;
+    flex-direction: column;
+    border: 20px solid red;
+    border-radius: 20px;
+    padding: 1px;
+    width: 80vw; /* Adjust the width as per your requirement */
+    height: 80vh; /* Adjust the height as per your requirement */
+    max-width: 500px; /* Optional: to prevent it from getting too large on big screens */
+    max-height: 500px; /* Optional: as above */
+    margin: auto; /* Center the container */
+    overflow: hidden;
+    background-color: white;
+}
+
+
+.row {
+    display: flex;
+}
+
+.cell {
+    flex-grow: 1;
+    /*border: 1px solid #ddd;*/
+    aspect-ratio: 1 / 1; /* To ensure cells are square */
+    box-sizing: border-box;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.color-select {
+    border: 2px black solid;
+    padding: 5px;
+}
+
+.rainbow-select {
+    border: 2px black solid;
+    padding: 5px;
+}
+
+.erase-select {
+    border: 2px black solid;
+    padding: 5px;
+}
+
+.clear-button {
+    border: 2px black solid;
+    padding: 5px;
+}
+
+.slider {
+    border: 2px black solid;
+    padding: 0px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+#sliderValue {
+    font-weight: bold;
+    margin-left: 10px;
+    color: white;
+}
