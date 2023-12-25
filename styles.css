@@ -43,7 +43,7 @@ body {
     flex-direction: column;
     border: 20px solid red;
     border-radius: 20px;
-    padding: 1px;
+    padding: 0px;
     width: 80vw; /* Adjust the width as per your requirement */
     height: 80vh; /* Adjust the height as per your requirement */
     max-width: 500px; /* Optional: to prevent it from getting too large on big screens */
@@ -73,28 +73,28 @@ body {
     margin-top: 20px;
 }
 
+.color-input {
+    padding: 0px;
+    height: 100%;
+}
+
 .color-select {
-    border: 2px black solid;
     padding: 5px;
 }
 
 .rainbow-select {
-    border: 2px black solid;
-    padding: 5px;
+    padding: 10px 10px;
 }
 
 .erase-select {
-    border: 2px black solid;
     padding: 5px;
 }
 
 .clear-button {
-    border: 2px black solid;
     padding: 5px;
 }
 
 .slider {
-    border: 2px black solid;
     padding: 0px;
 }
 
@@ -108,4 +108,31 @@ body {
     font-weight: bold;
     margin-left: 10px;
     color: white;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    background-color: var(--secondary-background);
+    color: white;
+  }
+
+
+.fa-github {
+    color: white;
+    font-size: 30px;
+}
+
+.selected {
+    background-color: darkgray;
+    color: white;
+    border-color: black;
 }

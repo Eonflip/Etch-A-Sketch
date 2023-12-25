@@ -15,10 +15,14 @@
 
     <main class="main">
         <div class="square-container" id="squaresContainer">
-
+            <p class="name-mark"> Magic Etch-A-Sketch® Screen </p>
+            <div class="left-knob"></div>
+            <div class="right-knob"></div>
         </div>
         <div class="buttons">
-            <input type="color" class="slider" id="slider" />
+            <div class="color-input-wrapper">
+                <input type="color" class="color-input" id="colorInput" />
+            </div>
             <button class="color-select" id="colorSelect">Color</button>
             <button class="rainbow-select" id="rainbowSelect">Rainbow</button>
             <button class="erase-select" id="eraseSelect">Eraser</button>
@@ -36,7 +40,7 @@
         <p class="footer-text" id="footerText">
             Copyright © 
             <script>document.write(new Date.getFullYear())</script>
-            eonloop
+            Eonloop
         </p>
         <a href="https://github.com/Eonflip" target="_blank">
            <i class="fab fa-github"></i> 
