@@ -1,12 +1,69 @@
-const colorSelector = document.getElementById('colorSelect');
-const colorButton = document.getElementById('colorButton');
-const rainbowButton = document.getElementById('rainbowButton');
+
+//DOM Elements to each button/input/squares grid for drawing
+const colorSelector = document.getElementById('colorInput');
+const colorButton = document.getElementById('colorSelect');
+const rainbowButton = document.getElementById('rainbowSelect');
+const eraseButton = document.getElementById('eraseSelect');
 const clearButton = document.getElementById('clearButton');
 const sizeSlider = document.getElementById('sizeSlider');
 const sliderValueDisplay = document.getElementById('sliderValue');
 const container = document.getElementById('squaresContainer');
-let isMouseDown = false;
 
+
+//Set Default Values so that the etch-a-sketch has a default state
+let isMouseDown = false;
+const DEFAULT_COLOR = 'rgb(0, 0, 0)';
+const DEFAULT_SIZE = 16;
+const DEFAULT_MODE = 'color';
+
+let currentColor = DEFAULT_COLOR;
+let currentSize = DEFAULT_SIZE;
+let currentMode = DEFAULT_MODE;
+
+
+//add event listeners to change the mode the etch-a-sketch is set in
+colorButton.addEventListener('click', function() {
+    currentMode = 'color';
+});
+
+rainbowButton.addEventListener('click', function() {
+    currentMode = 'rainbow';
+});
+
+eraseButton.addEventListener('click', function() {
+    currentMode = 'erase';
+})
+//This one handles the color when setting the value of the color input field
+colorSelector.addEventListener('input', function() {
+    currentColor = colorSelector.value;
+});
+
+
+
+//setup a function to handle each different mode depeneding on the button selected
+function drawMode(cell) {
+
+    let randR = Math.floor(Math.random() * 256);
+    let randG = Math.floor(Math.random() * 256);
+    let randB = Math.floor(Math.random() * 256);
+
+    if (isMouseDown === true && cell.className === "cell") {
+        switch (currentMode) {
+            case 'color':
+                cell.style.background = currentColor;
+                break;
+            case 'rainbow':
+                cell.style.background = `rgb(${randR}, ${randG}, ${randB})`;
+                break;
+            case 'erase':
+                cell.style.background = 'white'; // Or whatever your background color is
+                break;
+        }
+    }
+}
+
+
+//Create a grid depending on the size of the sizeSlider element
 function createGrid(size) {
 
     while (container.firstChild) {
@@ -30,27 +87,25 @@ function createGrid(size) {
 
 sizeSlider.addEventListener('input', function () {
     const size = sizeSlider.value;
-    sliderValueDisplay.textContent = size;
+    sliderValueDisplay.textContent = size + " x " + size;
+    createGrid(size);
+    setupDrawing();
 });
 
-createGrid(25);
+
 
 function setupDrawing () {
     container.addEventListener('mousedown', (event) => {
         isMouseDown = true; 
-        if (event.target.className == 'cell') {
-            event.target.style.background = 'black';
-        }
+        drawMode(event.target);
     }, false);
 
-    container.addEventListener('mouseup', function() {
+    document.addEventListener('mouseup', function() {
         isMouseDown = false;
     }, false);
 
     container.addEventListener('mouseover', (event) => {
-        if (isMouseDown && event.target.className === "cell") {
-            event.target.style.background = "black";
-        }
+        drawMode(event.target);
     }, false);
 
     container.addEventListener("dragstart", function(event) {
@@ -77,5 +132,9 @@ document.querySelectorAll('button').forEach(button => {
 })
 
 
-
+createGrid(DEFAULT_SIZE);
 setupDrawing();
+
+window.onload = () => {
+    colorButton.classList.add('selected');
+}
